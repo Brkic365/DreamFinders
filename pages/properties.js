@@ -10,13 +10,13 @@ import Searchbar from "@/components/Searchbar";
 import PropertyCard from "@/components/PropertyCard";
 
 export default function Property() {
-
-    return (
+  return (
     <div className={styles.container}>
       <Head>
-        <title>Site Title</title>
+        <title>Properties | DreamFinders Realty</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Site Description." />
+        <meta name="description" content="Explore our diverse range of listings and find your dream 
+property that perfectly fits your unique lifestyle and preferences." />
         <meta property="og:image" content="/images/logo.png" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -24,19 +24,19 @@ export default function Property() {
       <main className={styles.main}>
         {/* Hero section */}
         <section className={styles.hero}>
-            <Searchbar />
+          <Searchbar />
         </section>
 
         {/* Properties section */}
         <section className={styles.properties}>
-            <section className={styles.propertyGrid}>
+          <section className={styles.propertyGrid}>
             {
-                // Map through all properties and render them
-                properties.map((property) => {
+              // Map through all properties and render them
+              properties.map((property) => {
                 return <PropertyCard id={property.id} key={property.id} />;
-                })
+              })
             }
-            </section>
+          </section>
         </section>
       </main>
     </div>

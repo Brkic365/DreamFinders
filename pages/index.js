@@ -13,9 +13,10 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Site Title</title>
+        <title>DreamFinders Realty</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Site Description." />
+        <meta name="description" content="Explore our diverse range of listings and find your dream 
+property that perfectly fits your unique lifestyle and preferences." />
         <meta property="og:image" content="/images/logo.png" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -45,13 +46,13 @@ export default function Home() {
           <h2>Popular properties</h2>
 
           <section className={styles.propertyGrid}>
-          {
-            // Map through all popular properties and render them
+            {
+              // Map through all popular properties and render them
 
-            popularPropertyIds.map((propertyId) => {
-              return <PropertyCard id={propertyId} key={propertyId} />;
-            })
-          }
+              popularPropertyIds.map((propertyId) => {
+                return <PropertyCard id={propertyId} key={propertyId} />;
+              })
+            }
           </section>
 
           <Link href="/properties">
@@ -65,8 +66,8 @@ export default function Home() {
             <h2>About Us</h2>
             <p>
               Dreamfinders Realty is a premier real estate company dedicated to
-              helping clients achieve their dreams of buying, selling, or renting
-              property. <br />
+              helping clients achieve their dreams of buying, selling, or
+              renting property. <br />
               With a team of highly experienced and knowledgeable real estate
               professionals, we strive to provide exceptional service and
               expertise in the ever-changing real estate market. <br />
@@ -74,8 +75,9 @@ export default function Home() {
               for each of our clients, with a focus on transparency,
               communication, and trust. <br />
               Whether you are looking to buy your dream home, sell your property
-              for the highest value, or rent a property that fits your lifestyle,
-              Dreamfinders Realty is here to guide you every step of the way.
+              for the highest value, or rent a property that fits your
+              lifestyle, Dreamfinders Realty is here to guide you every step of
+              the way.
             </p>
             <section className={styles.buttons}>
               <button>Call now</button>
