@@ -12,17 +12,16 @@ DreamFinders offers the following features:
 
 - Search for properties by location, price range, and other criteria
 - View detailed information about each property, including photos, descriptions, and amenities
-- Save properties to your favorites list for easy access later
 - Contact the seller or real estate agent for more information or to schedule a viewing
 
 ## Technologies Used
 
 DreamFinders was built using the following technologies:
 
-- HTML/CSS for the user interface
-- JavaScript for the search and filtering functionality
-- Node.js and Express for the server-side code
-- MongoDB for the database
+- Next.js as the main framework
+- JSX for the skeleton of the website
+- SCSS for styling
+- Javascript for the logic behind everything
 
 ## Contributing
 
