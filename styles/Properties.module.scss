@@ -1,0 +1,20 @@
+.main {
+    .hero {
+        padding: 5rem 1rem 2rem 1rem;
+    }
+
+    .properties {
+        padding: 1.5rem;
+        background: white;
+
+        .propertyGrid {
+            margin: 1rem 0;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
+}

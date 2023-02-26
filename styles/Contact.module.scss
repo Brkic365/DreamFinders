@@ -1,0 +1,28 @@
+.main {
+
+    h1 {
+        font-weight: 900;
+        font-size: 2.1rem;
+        line-height: 42px;
+        text-align: center;
+        color: white;
+    }
+
+    .hero {
+        padding: 5rem 1rem 4rem 1rem;
+    }
+
+    .contact {
+        background: white;
+
+        .contactGrid {
+            padding: 3rem 1.5rem;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
+}

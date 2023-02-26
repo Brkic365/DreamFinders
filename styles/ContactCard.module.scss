@@ -1,0 +1,51 @@
+.contactCard {
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    padding: 1rem;
+    width: 20rem;
+    border-radius: 14px;
+
+    .top {
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+
+        .iconBox {
+            margin-right: 1rem;
+            background: linear-gradient(180deg, #E7D068 0%, #F8BF80 100%);
+            border-radius: 10px;
+            padding: 7px 9px;
+
+            svg {
+                width: 1.6rem;
+                height: 1.6rem;
+                color: white;
+            }
+        }
+
+        h3 {
+            color: black;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 29px;
+            text-align: center;
+        }
+    }
+
+    p {
+        color: black;
+        font-weight: 400;
+        font-size: 0.9rem;
+        line-height: 16px;
+        text-align: left;
+        opacity: 0.5;
+    }
+
+    span {
+        margin-top: 0.5rem;
+        color: black;
+        font-weight: 700;
+        font-size: 0.9rem;
+        line-height: 16px;
+        text-align: left;
+    }
+}

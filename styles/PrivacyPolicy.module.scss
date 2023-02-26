@@ -1,0 +1,63 @@
+.main {
+    h1 {
+        font-weight: 900;
+        font-size: 2.1rem;
+        line-height: 42px;
+        text-align: center;
+        color: white;
+    }
+
+    .hero {
+        padding: 5rem 1rem 4rem 1rem;
+    }
+
+    .policy {
+        padding: 1.5rem;
+        background: white;
+
+        ul {
+            list-style: none; /* Remove default bullets */
+
+            li {
+                margin-left: 1rem;
+            }
+
+            li::before {
+                content: "\2022";   // Add content: \2022 is the CSS Code/unicode for a bullet */
+                color: #08080A; // Change the color
+                opacity: 0.8; // Lower the opacity
+                font-weight: bold; // If you want it to be bold */
+                display: inline-block; // Needed to add space between the bullet and the text */
+                width: 1em; // Also needed for space (tweak if needed) */
+                margin-left: -1em; // Also needed for space (tweak if needed)
+              }
+        }
+        
+        p, span, li, a {
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 17px;
+            color: #08080A;
+            opacity: 0.5;
+        }
+
+        p, li, span {
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-top: 0.5rem;
+        }
+
+        span {
+            opacity: 0.8;
+            font-weight: 700;
+        }
+
+        a {
+            opacity: 1;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
