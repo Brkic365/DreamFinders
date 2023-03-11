@@ -4,29 +4,74 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "@/styles/Property.module.scss";
+import properties from "@/public/data/properties.json";
 
 import { HiArrowLongRight } from "react-icons/hi2";
 
 export default function Property() {
   const router = useRouter();
 
-  const [id, setId] = useState(null);
+  const [property, setProperty] = useState(null);
 
+  // Adds spaces after every few dots so text isn't cramped
+  const spaceOut = (text) => {
+
+     // Final result
+    let finalText = "";
+
+    // Blocks of sentences
+    let sentenceBlock = "";
+
+    // Split the text in sentences
+    const textArray = text.split(".");
+
+    // Used to check how many letters have been since last break
+    let letterCounter = 0;
+
+    textArray.forEach(sentence => {
+      letterCounter += sentence.length;
+      sentenceBlock += sentence + ".";
+
+      // If letter counter is big enough, add the sentence and then a break, and reset
+      // both the counter and the sentence block
+
+      console.log(sentenceBlock, letterCounter);
+
+      if(letterCounter > 200) {
+        letterCounter = 0;
+        finalText += sentenceBlock + "<br /><br />";
+        sentenceBlock = "";
+      }
+    });
+
+    // Add the final block
+    if(sentenceBlock !== ".") {
+      finalText += sentenceBlock;
+    }
+
+    return finalText;
+  }
+ 
   // Whenever router updates, check if there is 'id' variable
-  // in the query, and if it is, update the id state
+  // in the query, and if it is, set property to the one that matches the id
   useEffect(() => {
     if (router.query.id) {
-      setId(router.query.id);
+      setProperty(properties.find((val) => val.id == router.query.id));
     }
   }, [router]);
+
+  if (!property) return null;
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Malibu Villa | DreamFinders Realty</title>
+        <title>{property.title} | DreamFinders Realty</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Explore our diverse range of listings and find your dream 
-property that perfectly fits your unique lifestyle and preferences." />
+        <meta
+          name="description"
+          content="Explore our diverse range of listings and find your dream 
+property that perfectly fits your unique lifestyle and preferences."
+        />
         <meta property="og:image" content="/images/logo.png" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -34,37 +79,15 @@ property that perfectly fits your unique lifestyle and preferences." />
       <main className={styles.main}>
         {/* Hero section */}
         <section className={styles.hero}>
-          <h1>Malibu Villa</h1>
+          <h1>{property.title}</h1>
         </section>
 
         {/* About section */}
         <section className={styles.about}>
           <section className={styles.content}>
             <h2>About the Property</h2>
-            <h3>$1,540,000</h3>
-            <p>
-              Introducing the ultimate in luxurious coastal living - a stunning
-              Malibu villa nestled on the exclusive La Costa Beach. <br />
-              <br />
-              This exquisite villa boasts breathtaking ocean views, with direct
-              access to the beach just steps away. With over 5,000 square feet
-              of living space, this beautifully appointed home features five
-              bedrooms and five bathrooms, providing ample space for both
-              entertaining and relaxation. <br />
-              <br />
-              The open floor plan is flooded with natural light, highlighting
-              the elegant finishes and designer touches throughout. The gourmet
-              kitchen is a chef's dream, featuring top-of-the-line appliances
-              and custom cabinetry. The spacious master suite offers a serene
-              retreat, with a private balcony overlooking the ocean and a
-              luxurious spa-like bathroom. <br />
-              <br />
-              Enjoy endless days of sunshine and stunning sunsets from the
-              expansive outdoor living areas, including a rooftop deck with
-              panoramic views, a private courtyard, and a beachfront patio. With
-              its prime location and luxurious amenities, this Malibu villa
-              offers the ultimate in California coastal living.
-            </p>
+            <h3>${property.price.toLocaleString("en-US")}</h3>
+            <p dangerouslySetInnerHTML={{__html: spaceOut(property.description)}} />
             <section className={styles.buttons}>
               <button>Call now</button>
               <button className={styles.transparentBtn}>Message now</button>
@@ -73,7 +96,7 @@ property that perfectly fits your unique lifestyle and preferences." />
           <section className={styles.images}>
             <section className={styles.backImgContainer} />
             <section className={styles.frontImgContainer} />
-            <Link href={`/gallery?id=${id}`}>
+            <Link href={`/gallery?id=${property.id}`}>
               <section className={styles.cta}>
                 <p>Open gallery</p>
                 <HiArrowLongRight />
@@ -85,7 +108,7 @@ property that perfectly fits your unique lifestyle and preferences." />
         {/* Graphic section */}
         <section className={styles.graphic}>
           <section className={styles.imagePrice}>
-            <h1>$1,540,000</h1>
+            <h1>${property.price.toLocaleString("en-US")}</h1>
             <section className={styles.backImgContainer} />
             <section className={styles.frontLeftImgContainer} />
             <section className={styles.frontRightImgContainer} />

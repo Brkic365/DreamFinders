@@ -1,45 +1,126 @@
 .searchbar {
-    background: white;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  padding-left: 10px;
+  width: 100%;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  max-width: 33rem;
+
+  .search {
     display: flex;
     align-items: center;
-    padding: 5px;
-    padding-left: 10px;
     width: 100%;
+
+    svg {
+      color: #f8bf80;
+      width: 1.65rem;
+      height: 1.65rem;
+    }
+
+    input {
+      margin-left: 0.5rem;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+  }
+
+  button {
+    padding: 0rem 1.2rem;
+    background: linear-gradient(180deg, #e7d068 0%, #f8bf80 100%);
+    box-shadow: 0px 4px 15px rgba(231, 208, 104, 0.3);
     border-radius: 4px;
-    margin: 1.5rem 0;
+    font-weight: 600;
+    font-size: 0.85rem;
+    line-height: 35px;
+    color: white;
+    border: 1px solid #e7d068;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .searchbar {
+    padding: 7px;
+    padding-left: 12px;
+    width: 100%;
+    border-radius: 8px;
+    margin: 2rem 0;
+    max-width: 33rem;
 
     .search {
-        display: flex;
-        align-items: center;
-        width: 100%;
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
 
-        svg {
-            color: #F8BF80;
-            width: 1.65rem;
-            height: 1.65rem;
-        }
-
-        input {
-            margin-left: 0.5rem;
-            width: 100%;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-        }
+      input {
+        padding: 0.5rem 0.75rem;
+        font-size: 1.2rem;
+      }
     }
 
     button {
-        padding: 0rem 1.2rem;
-        background: linear-gradient(180deg, #E7D068 0%, #F8BF80 100%);
-        box-shadow: 0px 4px 15px rgba(231, 208, 104, 0.3);
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 0.85rem;
-        line-height: 35px;
-        color: white;
-        border: 1px solid #E7D068;
+      padding: 0.3rem 2rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      line-height: 35px;
     }
+  }
 }
-  
 
-  
+@media only screen and (min-width: 1500px) {
+  .searchbar {
+    padding-left: 12px;
+    width: 100%;
+    border-radius: 10px;
+    max-width: 38rem;
+
+    .search {
+      svg {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+
+      input {
+        padding: 0.5rem 1.25rem;
+        font-size: 1.5rem;
+      }
+    }
+
+    button {
+      padding: 0.6rem 2rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      line-height: 35px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .searchbar {
+    padding-left: 16px;
+    width: 100%;
+    max-width: 48rem;
+
+    .search {
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      input {
+        padding: 0.7rem 1.25rem;
+        font-size: 1.6rem;
+      }
+    }
+
+    button {
+      padding: 0.8rem 3rem;
+      font-size: 1.3rem;
+    }
+  }
+}

@@ -7,7 +7,7 @@ import Searchbar from "@/components/Searchbar";
 import NumberCounter from "@/components/NumberCounter";
 import PropertyCard from "@/components/PropertyCard";
 
-const popularPropertyIds = [0, 1, 2, 3, 4, 5, 6, 7];
+const popularPropertyIds = [0, 1, 2, 3];
 
 export default function Home() {
   return (
@@ -42,7 +42,7 @@ property that perfectly fits your unique lifestyle and preferences." />
         </section>
 
         {/* Popular properties section */}
-        <section className={styles.properties}>
+        <section className={styles.properties} id="popular-properties">
           <h2>Popular properties</h2>
 
           <section className={styles.propertyGrid}>
@@ -61,7 +61,7 @@ property that perfectly fits your unique lifestyle and preferences." />
         </section>
 
         {/* About us section */}
-        <section className={styles.about}>
+        <section className={styles.about} id="about-us">
           <section className={styles.content}>
             <h2>About Us</h2>
             <p>
@@ -88,7 +88,7 @@ property that perfectly fits your unique lifestyle and preferences." />
         </section>
 
         {/* Get started section */}
-        <section className={styles.getStarted}>
+        <section className={styles.getStarted} id="contact">
           <section className={styles.box}>
             <h2>Get Started with DreamFinders Realty</h2>
             <p>

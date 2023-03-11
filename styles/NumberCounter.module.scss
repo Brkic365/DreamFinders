@@ -1,19 +1,32 @@
 .numberCounter {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: fit-content;
 
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 30px;
+    color: #e7d068;
+    text-shadow: 0px 4px 25px rgba(231, 208, 104, 0.4);
+  }
+
+  p {
+    margin-top: 0.25rem;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .numberCounter {
     h3 {
-        font-size: 1.6rem;
-        font-weight: 900;
-        line-height: 30px;
-        color: #E7D068;
-        text-shadow: 0px 4px 25px rgba(231, 208, 104, 0.4);
+      font-size: 2rem;
+      line-height: normal;
     }
 
     p {
-        margin-top: 0.25rem;
+      margin-top: 0.2rem;
     }
+  }
 }

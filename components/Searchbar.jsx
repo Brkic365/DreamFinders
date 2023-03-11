@@ -3,8 +3,8 @@ import { HiLocationMarker } from "react-icons/hi";
 import { useRouter } from 'next/router';
 import styles from "@/styles/Searchbar.module.scss"
 
-function Searchbar() {
-  const [query, setQuery] = useState('');
+function Searchbar({ defaultVal="" }) {
+  const [query, setQuery] = useState(defaultVal);
   const router = useRouter();
 
     // Search the value user inputed if user presses the 'Search' button
@@ -28,6 +28,7 @@ function Searchbar() {
         <input 
           placeholder="Search by location..."         
           value={query}
+          defaultValue={defaultVal}
           onKeyDown={handleKeyDown}
           onChange={(event) => setQuery(event.target.value)} 
         />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import styles from "@/styles/Footer.module.scss";
 
@@ -13,18 +14,32 @@ function Footer() {
   return (
     <div className={styles.container}>
       <footer className={styles.footer}>
+        
+      <section  className={styles.content}>
+        <section className={styles.logoHolder}>
+          <Image
+            src="/images/large-logo.webp"
+            alt="DreamFinders logo"
+            width={148}
+            height={244}
+            layout="responsive"
+            objectFit="contain"
+            priority
+          />
+        </section>
+
         <section className={styles.categories}>
           <section className={styles.category}>
             <h5>LINKS</h5>
             <ul>
               <li>
-                <Link href="#what-we-do">What we do</Link>
+                <Link href="#popular-properties">Properties</Link>
               </li>
               <li>
-                <Link href="#our-work">Our work</Link>
+                <Link href="#about-us">About Us</Link>
               </li>
               <li>
-                <Link href="#who-we-are">Who we are</Link>
+                <Link href="#contact">Contact Us</Link>
               </li>
             </ul>
           </section>
@@ -34,8 +49,8 @@ function Footer() {
             <ul>
               <li>
                 <FaEnvelope />
-                <Link href="mailto:group.polyminds@gmail.com">
-                  group.polyminds@gmail.com
+                <Link href="mailto:info@polyminds.tech">
+                  info@polyminds.tech
                 </Link>
               </li>
               <li>
@@ -77,14 +92,12 @@ function Footer() {
               <li>
                 <Link href="/privacy-policy">Privacy policy</Link>
               </li>
-              <li>
-                <Link href="/terms-and-conditions">Terms and Conditions</Link>
-              </li>
             </ul>
+          </section>
           </section>
         </section>
 
-        <p>Copyright © Polyminds 2022. All Rights Reserved.</p>
+        <p>Copyright © DreamFinders 2022-{new Date().getFullYear()}. All Rights Reserved.</p>
       </footer>
     </div>
   );

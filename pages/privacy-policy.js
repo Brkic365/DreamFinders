@@ -18,7 +18,7 @@ property that perfectly fits your unique lifestyle and preferences." />
       <main className={styles.main}>
         {/* Hero Section */}
         <section className={styles.hero}>
-          <h1>Contact Us</h1>
+          <h1>Privacy Policy</h1>
         </section>
 
         {/* Policy Section */}

@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "@/styles/PropertyCard.module.scss";
 import properties from "@/public/data/properties.json";
 
+import { useRouter } from "next/router";
+
 function PropertyCard({ id }) {
+
+  const router = useRouter();
 
   const [property, setProperty] = useState(null);
 
@@ -40,7 +44,7 @@ function PropertyCard({ id }) {
   if(!property) return null;
 
   return (
-    <section className={styles.propertyCard}>
+    <section className={styles.propertyCard} onClick={() => router.push(`/property?id=${property.id}`)}>
       <section className={styles.imgContainer} style={{backgroundImage: `url(${property.image})`}} />
       <h3><span>$</span>{property.price.toLocaleString("en-US")}</h3>
       <h4>{property.title}</h4>
