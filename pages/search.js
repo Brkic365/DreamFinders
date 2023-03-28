@@ -15,17 +15,19 @@ export default function Property() {
   const router = useRouter();
 
   const [properties, setProperties] = useState(null);
- 
+
   // Whenever router updates, check if there is 'q' variable
-  // in the query, and if it is, set properties to ones that include the 
+  // in the query, and if it is, set properties to ones that include the
   // query in their title
   useEffect(() => {
     if (router.query.q) {
-      setProperties(all_properties.filter((property) => property.title.toLowerCase().includes(router.query.q)));
+      setProperties(
+        all_properties.filter((property) =>
+          property.title.toLowerCase().includes(router.query.q)
+        )
+      );
     }
   }, [router]);
-
-  if (!properties) return null;
 
   return (
     <div className={styles.container}>
@@ -49,14 +51,18 @@ property that perfectly fits your unique lifestyle and preferences."
 
         {/* Properties section */}
         <section className={styles.properties}>
-          <section className={styles.propertyGrid}>
-            {
-              // Map through all properties fitting the search query and render them
-              properties.map((property) => {
-                return <PropertyCard id={property.id} key={property.id} />;
-              })
-            }
-          </section>
+          {properties ? (
+            <section className={styles.propertyGrid}>
+              {
+                // Map through all properties fitting the search query and render them
+                properties.map((property) => {
+                  return <PropertyCard id={property.id} key={property.id} />;
+                })
+              }
+            </section>
+          ) : (
+            <h1 className={styles.noResults}>No results {":("}</h1>
+          )}
         </section>
       </main>
     </div>

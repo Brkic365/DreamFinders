@@ -1,63 +1,165 @@
 .main {
+  h1 {
+    font-weight: 900;
+    font-size: 2.1rem;
+    line-height: 42px;
+    text-align: center;
+    color: white;
+  }
+
+  .hero {
+    padding: 5rem 1rem 4rem 1rem;
+  }
+
+  .policy {
+    padding: 1.5rem;
+    background: white;
+
+    .content {
+      width: 100%;
+
+      ul {
+        list-style: none; /* Remove default bullets */
+
+        li {
+          margin-left: 1rem;
+        }
+
+        li::before {
+          content: "\2022"; // Add content: \2022 is the CSS Code/unicode for a bullet */
+          color: #08080a; // Change the color
+          opacity: 0.8; // Lower the opacity
+          font-weight: bold; // If you want it to be bold */
+          display: inline-block; // Needed to add space between the bullet and the text */
+          width: 1em; // Also needed for space (tweak if needed) */
+          margin-left: -1em; // Also needed for space (tweak if needed)
+        }
+      }
+
+      p,
+      span,
+      li,
+      a {
+        font-weight: 400;
+        font-size: 0.9rem;
+        line-height: 17px;
+        color: #08080a;
+        opacity: 0.5;
+      }
+
+      p,
+      li,
+      span {
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-top: 0.5rem;
+      }
+
+      span {
+        opacity: 0.8;
+        font-weight: 700;
+      }
+
+      a {
+        opacity: 1;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .main {
     h1 {
-        font-weight: 900;
-        font-size: 2.1rem;
-        line-height: 42px;
-        text-align: center;
-        color: white;
+      font-size: 3rem;
     }
 
     .hero {
-        padding: 5rem 1rem 4rem 1rem;
+      padding: 7rem 1rem 4rem 1rem;
     }
 
     .policy {
-        padding: 1.5rem;
-        background: white;
+      padding: 2rem;
 
+      .content {
         ul {
-            list-style: none; /* Remove default bullets */
+          li {
+            margin-left: 1.25rem;
+          }
 
-            li {
-                margin-left: 1rem;
-            }
-
-            li::before {
-                content: "\2022";   // Add content: \2022 is the CSS Code/unicode for a bullet */
-                color: #08080A; // Change the color
-                opacity: 0.8; // Lower the opacity
-                font-weight: bold; // If you want it to be bold */
-                display: inline-block; // Needed to add space between the bullet and the text */
-                width: 1em; // Also needed for space (tweak if needed) */
-                margin-left: -1em; // Also needed for space (tweak if needed)
-              }
-        }
-        
-        p, span, li, a {
-            font-weight: 400;
-            font-size: 0.9rem;
-            line-height: 17px;
-            color: #08080A;
-            opacity: 0.5;
+          li::before {
+            width: 1.2em; // Also needed for space (tweak if needed) */
+            margin-left: -1.25em; // Also needed for space (tweak if needed)
+          }
         }
 
-        p, li, span {
-            margin-bottom: 0.5rem;
+        p,
+        span,
+        li,
+        a {
+          font-size: 1.1rem;
+          line-height: 26px;
+        }
+
+        p,
+        li,
+        span {
+          margin-bottom: 1rem;
         }
 
         p {
-            margin-top: 0.5rem;
+          margin-top: 1rem;
         }
-
-        span {
-            opacity: 0.8;
-            font-weight: 700;
-        }
-
-        a {
-            opacity: 1;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+      }
     }
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .main {
+    h1 {
+      font-size: 4rem;
+    }
+
+    .hero {
+      padding: 8rem 1rem 6rem 1rem;
+    }
+
+    .policy .content {
+      width: 60vw;
+      margin: 0 auto;
+
+      ul {
+        li {
+          margin-left: 1.5rem;
+        }
+
+        li::before {
+          width: 1.5em; // Also needed for space (tweak if needed) */
+          margin-left: -1.5em; // Also needed for space (tweak if needed)
+        }
+      }
+
+      p,
+      span,
+      li,
+      a {
+        font-size: 1.2rem;
+        line-height: 30px;
+      }
+
+      p,
+      li,
+      span {
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        margin-top: 1.5rem;
+      }
+    }
+  }
 }

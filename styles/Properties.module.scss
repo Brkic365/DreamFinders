@@ -1,20 +1,43 @@
 .main {
+  .hero {
+    padding: 5rem 1rem 2rem 1rem;
+  }
+
+  .properties {
+    padding: 1.5rem;
+    background: white;
+
+    .noResults {
+      font-size: 10vw;
+      text-align: center;
+      opacity: 0.2;
+    }
+
+    .propertyGrid {
+      margin: 1rem 0;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .main {
     .hero {
-        padding: 5rem 1rem 2rem 1rem;
+      width: 85%;
+      margin: 0 auto;
     }
+  }
+}
 
-    .properties {
-        padding: 1.5rem;
-        background: white;
-
-        .propertyGrid {
-            margin: 1rem 0;
-            width: 100%;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
+@media only screen and (min-width: 1800px) {
+  .main {
+    .hero {
+      width: 75%;
     }
+  }
 }

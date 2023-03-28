@@ -1,10 +1,14 @@
 .nav {
-  position: relative;
+  width: 95%;
+  position: absolute;
   z-index: 2;
   display: flex;
   align-items: center;
   place-content: space-between;
   padding: 1rem;
+  background-color: transparent;
+  left: 50%;
+  transform: translateX(-50%);
 
   .logoHolder {
     position: absolute;
@@ -24,6 +28,9 @@
   }
 
   .hamburger {
+    position: absolute;
+    top: 1.25rem;
+    right: 0;
     z-index: 1000;
     cursor: pointer;
     width: 1.2rem;

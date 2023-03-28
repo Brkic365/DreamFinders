@@ -7,16 +7,25 @@ import Searchbar from "@/components/Searchbar";
 import NumberCounter from "@/components/NumberCounter";
 import PropertyCard from "@/components/PropertyCard";
 
+import { useRouter } from "next/router";
+
+import { motion } from "framer-motion";
+
 const popularPropertyIds = [0, 1, 2, 3];
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <Head>
         <title>DreamFinders Realty</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Explore our diverse range of listings and find your dream 
-property that perfectly fits your unique lifestyle and preferences." />
+        <meta
+          name="description"
+          content="Explore our diverse range of listings and find your dream 
+property that perfectly fits your unique lifestyle and preferences."
+        />
         <meta property="og:image" content="/images/logo.png" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -32,9 +41,14 @@ property that perfectly fits your unique lifestyle and preferences." />
             </p>
             <Searchbar />
             <section className={styles.stats}>
-              <NumberCounter number="200k+" title="Properties" />
+              <NumberCounter number="200" sufix="k+" title="Properties" />
               <NumberCounter number="113" title="Awards" />
-              <NumberCounter number="1.5M+" title="Users" />
+              <NumberCounter
+                number="1.5"
+                decimals={1}
+                sufix="M+"
+                title="Users"
+              />
             </section>
           </section>
 
@@ -56,7 +70,12 @@ property that perfectly fits your unique lifestyle and preferences." />
           </section>
 
           <Link href="/properties">
-            <button>See more</button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              See more
+            </motion.button>
           </Link>
         </section>
 
@@ -80,8 +99,19 @@ property that perfectly fits your unique lifestyle and preferences." />
               the way.
             </p>
             <section className={styles.buttons}>
-              <button>Call now</button>
-              <button className={styles.transparentBtn}>Message now</button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Call now
+              </motion.button>
+              <motion.button
+                className={styles.transparentBtn}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Message now
+              </motion.button>
             </section>
           </section>
           <section className={styles.aboutImgContainer} />
@@ -96,7 +126,13 @@ property that perfectly fits your unique lifestyle and preferences." />
               helping clients achieve their dreams of buying, selling, or
               renting property.
             </p>
-            <button>Get started</button>
+            <motion.button
+              onClick={() => router.push("mailto:info@polyminds.tech")}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get started
+            </motion.button>
           </section>
         </section>
       </main>
