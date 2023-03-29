@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "@/styles/Gallery.module.scss";
 
@@ -29,6 +27,8 @@ export default function Property() {
   const [id, setId] = useState(null);
   const [imageOrder, setImageOrder] = useState(null);
 
+  const [maxImages, setMaxImages] = useState(0);
+
   // Get random number between min and max
   const getRandomInt = (min, max) => {
     return Math.round(Math.random() * (max - min) + min);
@@ -54,8 +54,8 @@ export default function Property() {
         remainingImages.shift(); // Remove the first (and only) element
       }
 
-      // Get random amount, from 1 to 2
-      amount = getRandomInt(1, 2);
+      // Get random amount, from 1 to max
+      amount = getRandomInt(1, maxImages);
 
       // Push to temporary image order first {amount} elements from remaining images
       imageOrderTemp.push(remainingImages.slice(0, amount));
@@ -76,9 +76,24 @@ export default function Property() {
     }
   }, [router]);
 
-  // On the first render, call the generateImageOrder function
+  // Whenever value of max images changes, re generate the image order
   useEffect(() => {
-    generateImageOrder();
+    if (maxImages > 0) {
+      generateImageOrder();
+    }
+  }, [maxImages]);
+
+  // On the first render, call the resize listener
+  useEffect(() => {
+    // Set initial value depending on the screen width
+    setMaxImages(window.innerWidth > 1200 ? 3 : 2);
+
+    // Update the max images whenever window gets resized
+    window.addEventListener("resize", () => {
+      // If width is > 1200, then we can put 3 images in one row,
+      // otherwise only one
+      setMaxImages(window.innerWidth > 1200 ? 3 : 2);
+    });
   }, []);
 
   return (
@@ -86,8 +101,11 @@ export default function Property() {
       <Head>
         <title>DreamFinders Realty</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Explore our diverse range of listings and find your dream 
-property that perfectly fits your unique lifestyle and preferences." />
+        <meta
+          name="description"
+          content="Explore our diverse range of listings and find your dream 
+property that perfectly fits your unique lifestyle and preferences."
+        />
         <meta property="og:image" content="/images/logo.png" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
